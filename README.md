@@ -32,3 +32,52 @@ like lang - en/hi/kn- text.php === like this
 ![image](https://github.com/mdmuzaffer/roles-with-permissions-and-multi-languages/assets/58267203/639c4d19-d568-4249-9b43-18dcbe7837c5)
 
 
+### Now create Middleware 
+
+Passing the locale for every site link might not be what you want and could look not so clean esthetically. That’s why we’ll perform language setup via a special language switcher and use the user session to display the translated content. Therefore, create new middleware in the app/Http/Middleware/Localization.php file or by running 
+
+php artisan make:middleware Localization.
+
+Paste the following code inside
+
+
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\UserDetail;
+use Tymon\JWTAuth\Facades\JWTAuth;
+
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
+
+
+class Localization
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+
+        if (Session::has('locale')) {
+            App::setLocale(Session::get('locale'));
+        }
+
+        if ($request->is('api/*')) {
+            $local = ($request->hasHeader('X-localization')) ? $request->header('X-localization') : 'en';
+            app()->setLocale($local);
+        }
+        
+
+        return $next($request);
+    }
+}
+
