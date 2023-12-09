@@ -43,15 +43,23 @@ Paste the following code inside
 
 
 namespace App\Http\Middleware;
+
 use Closure;
+
 use Illuminate\Http\Request;
+
 use Symfony\Component\HttpFoundation\Response;
+
 use Illuminate\Support\Facades\Auth;
+
 use App\Models\User;
+
 use App\Models\UserDetail;
+
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 use Illuminate\Support\Facades\App;
+
 use Illuminate\Support\Facades\Session;
 
 
