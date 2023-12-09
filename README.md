@@ -7,9 +7,7 @@ steps 2. = set the multiple language swithcher drop down option in header as you
 #### Here HTML code 
 
 <div class="col-md-1">
-    
   <form id="language-form" action="{{ route('langSwitch') }}" method="POST">
-      
     @csrf
     
     <select class="form-control Langchange" name="langSwitch" onchange="this.form.submit()">
@@ -19,7 +17,6 @@ steps 2. = set the multiple language swithcher drop down option in header as you
     </select>
     
   </form>
-  
 </div>
 
 
