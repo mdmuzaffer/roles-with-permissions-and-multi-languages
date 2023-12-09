@@ -41,10 +41,8 @@ php artisan make:middleware Localization.
 Paste the following code inside
 
 
-<?php
 
 namespace App\Http\Middleware;
-
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
