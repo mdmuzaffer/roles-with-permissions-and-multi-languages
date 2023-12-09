@@ -82,3 +82,17 @@ class Localization
     }
 }
 
+
+### Now register middleware in karnel.php file 
+
+This middleware will instruct Laravel to utilize the locale selected by the user if this selection is present in the session.
+
+Since we need this operation to be run on every request, we also need to add it to the default middleware stack at app/http/Kernel.php for the web middleware group:
+
+ADDD THIS - \App\Http\Middleware\Localization::class, // <--- add this
+
+![image](https://github.com/mdmuzaffer/roles-with-permissions-and-multi-languages/assets/58267203/8edaeb5a-674f-4ec4-b7b9-e8e7aa726852)
+
+
+
+
