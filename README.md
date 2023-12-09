@@ -94,5 +94,38 @@ ADDD THIS - \App\Http\Middleware\Localization::class, // <--- add this
 ![image](https://github.com/mdmuzaffer/roles-with-permissions-and-multi-languages/assets/58267203/8edaeb5a-674f-4ec4-b7b9-e8e7aa726852)
 
 
+### Now make a controller and route 
 
+A. php artisan make:controller LangSwitchController
+past this code :-
+
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\App;
+
+use Illuminate\Support\Facades\Session;
+
+class LangSwitchController extends Controller
+{
+    public function switchLanguage(Request $request, $locale = null)
+    {
+
+    $locale = $request->input('langSwitch');
+
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+
+    //dd(App::getLocale());
+
+    return redirect()->back();
+
+    }
+}
+
+### Here i route 
+
+Route::post('langSwitch', [LangSwitchController::class, 'switchLanguage'])->name('langSwitch');
 
