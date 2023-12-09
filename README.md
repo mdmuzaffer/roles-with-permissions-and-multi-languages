@@ -21,3 +21,14 @@ steps 2. = set the multiple language swithcher drop down option in header as you
 
 
 ![image](https://github.com/mdmuzaffer/roles-with-permissions-and-multi-languages/assets/58267203/00b58054-92dd-4632-bc20-f6414ff06386)
+
+
+#### Create language folder and then language name inside file -
+like lang - en/hi/kn- text.php === like this 
+![image](https://github.com/mdmuzaffer/roles-with-permissions-and-multi-languages/assets/58267203/de553992-5eb4-4ea4-98d0-cd776f06093c)
+
+### language file string variable like this 
+
+![image](https://github.com/mdmuzaffer/roles-with-permissions-and-multi-languages/assets/58267203/639c4d19-d568-4249-9b43-18dcbe7837c5)
+
+
