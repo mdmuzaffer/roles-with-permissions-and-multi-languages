@@ -125,7 +125,34 @@ class LangSwitchController extends Controller
     }
 }
 
-### Here i route 
+### Here create route 
 
 Route::post('langSwitch', [LangSwitchController::class, 'switchLanguage'])->name('langSwitch');
+
+
+### Here blade file call language string variable
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <span>{{ __('admin.title') }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+![image](https://github.com/mdmuzaffer/roles-with-permissions-and-multi-languages/assets/58267203/5bb50d7e-d41f-4495-a3f3-066e3dc8a472)
+
 
